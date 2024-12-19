@@ -36,6 +36,17 @@ public class ArraySearch {
                 return; // Exit the program if the number of elements is incorrect
             }
 
+            // Parse the inputs into integers
+            int[] array = new int[sizeOfArray]; // Create an integer array to store the parsed values
+            for (int i = 0; i < sizeOfArray; i++) {
+                try {
+                    array[i] = Integer.parseInt(inputStrings[i]); // Convert each input string to an integer
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Invalid input. Please enter integers only."); // Handle invalid number format
+                    return; // Exit the program if a non-integer is found
+                }
+            }
+
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage()); // Handle unexpected exceptions
         } finally {
