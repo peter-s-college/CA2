@@ -23,6 +23,19 @@ public class ArraySearch {
                 }
             }
 
+            scanner.nextLine(); // Consume leftover newline character after reading size
+            System.out.println("Enter " + sizeOfArray + " elements of the array, separated by spaces:");
+
+            // Read the entire line of input
+            String inputLine = scanner.nextLine();
+            String[] inputStrings = inputLine.trim().split("\\s+"); // Split the input line by spaces into an array
+
+            // Validate if the input length matches the array size
+            if (inputStrings.length != sizeOfArray) {
+                System.out.println("Error: Number of elements does not match the specified size of the array.");
+                return; // Exit the program if the number of elements is incorrect
+            }
+
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage()); // Handle unexpected exceptions
         } finally {
