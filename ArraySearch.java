@@ -1,4 +1,6 @@
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 
 public class ArraySearch {
     public static void main(String[] args) {
@@ -46,6 +48,19 @@ public class ArraySearch {
                     return; // Exit the program if a non-integer is found
                 }
             }
+
+            // Find the first repeated element
+            Set<Integer> seen = new HashSet<>(); // Create a HashSet to track seen numbers
+            for (int i = 0; i < array.length; i++) {
+                int num = array[i]; // Get the current number
+                if (seen.contains(num)) { // Check if the number has already been seen
+                    System.out.println("First repeated element: " + num); // Print the first repeated element
+                    return; // Exit the program after finding the first repeated element
+                }
+                seen.add(num); // Add the number to the set of seen numbers
+            }
+
+            System.out.println("No repeated elements found."); // Print if no repeated elements are found
 
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage()); // Handle unexpected exceptions
