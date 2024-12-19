@@ -25,6 +25,13 @@ public class MultiplicationTable {
             // Create a 2D array to store the multiplication table
             int[][] table = new int[size][size];
 
+            // Populate the 2D array with multiplication values
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    table[i][j] = (i + 1) * (j + 1); // (i+1) and (j+1) to start from 1 instead of 0
+                }
+            }
+
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         } finally {
