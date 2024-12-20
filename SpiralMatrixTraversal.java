@@ -66,6 +66,48 @@ public class SpiralMatrixTraversal {
                 }
             }
         }
+
+        // Perform and print the spiral traversal of the matrix
+        System.out.print("Spiral Traversal: ");
+        spiralTraversal(matrix, rows, columns);
+
         scanner.close(); // Close the scanner to release resources
+    }
+
+    // Method to perform spiral traversal of the matrix
+    public static void spiralTraversal(int[][] matrix, int rows, int columns) {
+        // Initialize boundaries for traversal
+        int top = 0, bottom = rows - 1, left = 0, right = columns - 1;
+
+        // Loop until the boundaries meet or overlap
+        while (top <= bottom && left <= right) {
+            // Traverse the top row from left to right
+            for (int i = left; i <= right; i++) {
+                System.out.print(matrix[top][i] + " "); // Print each element in the top row
+            }
+            top++; // Move the top boundary down
+
+            // Traverse the right column from top to bottom
+            for (int i = top; i <= bottom; i++) {
+                System.out.print(matrix[i][right] + " "); // Print each element in the right column
+            }
+            right--; // Move the right boundary left
+
+            // Traverse the bottom row from right to left (if rows remain)
+            if (top <= bottom) {
+                for (int i = right; i >= left; i--) {
+                    System.out.print(matrix[bottom][i] + " "); // Print each element in the bottom row
+                }
+                bottom--; // Move the bottom boundary up
+            }
+
+            // Traverse the left column from bottom to top (if columns remain)
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    System.out.print(matrix[i][left] + " "); // Print each element in the left column
+                }
+                left++; // Move the left boundary right
+            }
+        }
     }
 }
