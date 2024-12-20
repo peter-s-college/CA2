@@ -49,6 +49,56 @@ public class BubbleSort {
                 return; // Exit the program if invalid input is found
             }
         }
+
+        // Display the array before sorting
+        System.out.println("Array before sorting: ");
+        displayArray(array);
+
+        // Perform Bubble Sort and count swaps
+        int swapCount = bubbleSort(array);
+
+        // Display the array after sorting
+        System.out.println("Array after sorting: ");
+        displayArray(array);
+
+        // Display the number of swaps
+        System.out.println("Total number of swaps: " + swapCount);
+
         scanner.close();
+    }
+
+    // Bubble Sort method
+    public static int bubbleSort(int[] array) {
+        int swapCount = 0;
+        int n = array.length;
+        boolean swapped;
+
+        // Perform Bubble Sort
+        for (int i = 0; i < n - 1; i++) {
+            swapped = false;
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    // Swap the elements if they are in the wrong order
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                    swapped = true;
+                    swapCount++;
+                }
+            }
+            // If no elements were swapped, the array is already sorted
+            if (!swapped) {
+                break;
+            }
+        }
+        return swapCount;
+    }
+
+    // Method to display the array
+    public static void displayArray(int[] array) {
+        for (int i : array) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
     }
 }
