@@ -51,6 +51,21 @@ public class DiagonalSumMatrix {
                 }
             }
         }
+
+        // Variables to store the sums of the diagonals
+        int mainDiagonalSum = 0; // Sum of the main diagonal
+        int secondaryDiagonalSum = 0; // Sum of the secondary diagonal
+
+        // Calculate the sums of the main and secondary diagonals
+        for (int i = 0; i < size; i++) {
+            mainDiagonalSum += matrix[i][i]; // Add element from the main diagonal (row = column)
+            secondaryDiagonalSum += matrix[i][size - 1 - i]; // Add element from the secondary diagonal (row + column = size - 1)
+        }
+
+        // Display the results
+        System.out.println("Main diagonal sum: " + mainDiagonalSum); // Print the sum of the main diagonal
+        System.out.println("Secondary diagonal sum: " + secondaryDiagonalSum); // Print the sum of the secondary diagonal
+
         scanner.close(); // Close the scanner to release resources
     }
 }
