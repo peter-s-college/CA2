@@ -39,6 +39,16 @@ public class DiagonalSumMatrix {
                     System.out.println("Please enter exactly " + size + " integers for this row."); // Error message
                     continue; // Restart the current row input loop
                 }
+
+                try {
+                    // Parse the input into integers and fill the current row of the matrix
+                    for (int j = 0; j < size; j++) {
+                        matrix[i][j] = Integer.parseInt(rowElements[j]); // Convert each string to an integer
+                    }
+                    break; // Break the loop once the row input is valid
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input. Please enter integers only."); // Error message for non-integer values
+                }
             }
         }
         scanner.close(); // Close the scanner to release resources
